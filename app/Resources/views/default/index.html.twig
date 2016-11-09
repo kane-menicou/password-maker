@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1 class= "title">Welcome to password maker</h1>
+    <h1 class= "title">Welcome to Password Maker</h1>
     <h4>Created by Kane Menicou</h4>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
     <a href="password">Click Here to generate password</a>
 {% endblock %}
