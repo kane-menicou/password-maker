@@ -946,3 +946,7 @@
 [2016-11-12 19:16:15] request.INFO: Matched route "homepage". {"route_parameters":{"_controller":"AppBundle\\Controller\\DefaultController::indexAction","_route":"homepage"},"request_uri":"http://127.0.0.1:8000/"} []
 [2016-11-12 19:16:15] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
 [2016-11-12 19:16:16] request.INFO: Matched route "_wdt". {"route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"3fe144","_route":"_wdt"},"request_uri":"http://127.0.0.1:8000/_wdt/3fe144"} []
+[2016-11-12 23:03:42] php.DEBUG: fsockopen(): unable to connect to 127.0.0.1:8000 (No connection could be made because the target machine actively refused it. ) {"type":2,"file":"D:\\Files and Programs\\SoftwareProjects\\password-maker\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle\\Command\\ServerCommand.php","line":59,"level":28928} []
+[2016-11-12 23:03:43] request.INFO: Matched route "homepage". {"route_parameters":{"_controller":"AppBundle\\Controller\\DefaultController::indexAction","_route":"homepage"},"request_uri":"http://127.0.0.1:8000/"} []
+[2016-11-12 23:03:43] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2016-11-12 23:03:45] request.INFO: Matched route "_wdt". {"route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"987337","_route":"_wdt"},"request_uri":"http://127.0.0.1:8000/_wdt/987337"} []
