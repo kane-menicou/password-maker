@@ -27,6 +27,7 @@ class DefaultController extends Controller
         $form = $this->createFormBuilder($password)
             ->add('length', RangeType::class, ['label' => 'Length 1-50', 'attr' => ['min' => 1, 'max' => 50]])
             ->add('letters', CheckboxType::class, ['label' => 'Allow letters?', 'required' => false,])
+            ->add('numbers', CheckboxType::class, ['label' => 'Allow numbers?', 'required' => false,])
             ->add('save', SubmitType::class, ['label' => 'Generate Password'])
 
             ->getForm();
@@ -36,8 +37,9 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $passwordLength = $form->get('length')->getData();
             $allowLetters = $form->get('letters')->getData();
+            $allowNumbers = $form->get('numbers')->getData();
             $passwordService = $this->get('password.service');
-            $password = $passwordService->passwordMaker($passwordLength, $allowLetters);
+            $password = $passwordService->passwordMaker($passwordLength, $allowLetters, $allowNumbers);
             $message = "Your password is: ";
         }else{
             $password = "";
