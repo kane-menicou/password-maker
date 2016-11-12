@@ -1,3 +1,0 @@
-services:
-   password.service:
-        class: PasswordBundle\Services\PasswordService

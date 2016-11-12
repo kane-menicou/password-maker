@@ -7,14 +7,36 @@
                 Password Maker
             {% endblock %}
         </title>
+        <style>
+            body{
+                background-color: #5eb5e0;
+            }
+            h1,h2,h4{
+                text-align: center;
+                font-family: Arial, serif;
+            }
+            h1{
+                font-size: 70px;
+            }
+            .password{
+                font-weight: bold;
+                font-size: 60px;
+                font-family: Arial, serif;
+                text-align: center;
+            }
+            .message{
+                font-weight: bold;
+                font-size: 60px;
+                font-family: Arial, serif;
+            }
 
-        {% block stylesheets %}
-            <link href="{{ asset('style.css') }}" rel="stylesheet" />
-        {% endblock %}
+
+        </style>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block body %}
+            <h1>Password Maker</h1>
+        {% endblock %}
     </body>
 </html>
