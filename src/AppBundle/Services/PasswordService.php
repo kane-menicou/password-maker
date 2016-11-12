@@ -13,8 +13,10 @@ class PasswordService
     /**
      * @param int $length
      * @param bool $allowLetters
-     * @param array $allowedChars
+     * @param $allowNumbers
+     *
      * @return string
+     * @internal param array $allowedChars
      */
     public function passwordMaker($length = 10, $allowLetters, $allowNumbers)
     {
@@ -31,10 +33,13 @@ class PasswordService
         if($allowNumbers === true){
             $allowedChars = array_merge($allowedChars, $numbers);
         }
-        while ($length > 0){
-            $this->password = $this->password.$allowedChars[rand(0, count($allowedChars) - 1)];
+
+        while ($length > 0) {
+            $this->password = $this->password . $allowedChars[rand(0, count($allowedChars) - 1)];
             $length -= 1;
         }
+
+
         return $this->password;
     }
 }

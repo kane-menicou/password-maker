@@ -38,9 +38,14 @@ class DefaultController extends Controller
             $passwordLength = $form->get('length')->getData();
             $allowLetters = $form->get('letters')->getData();
             $allowNumbers = $form->get('numbers')->getData();
-            $passwordService = $this->get('password.service');
-            $password = $passwordService->passwordMaker($passwordLength, $allowLetters, $allowNumbers);
-            $message = "Your password is: ";
+            if ($allowLetters === true || $allowNumbers === true) {
+                $passwordService = $this->get('password.service');
+                $password = $passwordService->passwordMaker($passwordLength, $allowLetters, $allowNumbers);
+                $message = "Your password is: ";
+            }else{
+                $password = "";
+                $message = "Please fill in the parameters of your password";
+            }
         }else{
             $password = "";
             $message = "Please fill in the parameters of your password";
