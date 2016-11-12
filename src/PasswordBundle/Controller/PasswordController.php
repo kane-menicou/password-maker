@@ -2,7 +2,6 @@
 
 namespace PasswordBundle\Controller;
 
-use PasswordBundle\Entity\Password;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,7 +15,7 @@ class PasswordController extends Controller
     public function password()
     {
         $passwordService = $this->get('password.service');
-        $password = $passwordService->passwordMaker(10);
+        $password = $passwordService->passwordMaker(15, true, true);
         return $this->render('PasswordBundle:Default:index.html.twig',[
             'password' => $password,
         ]);
