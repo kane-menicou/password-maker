@@ -1,6 +1,6 @@
 <?php
 
-namespace PasswordBundle\Entity;
+namespace AppBundle\Entity;
 
 class Password
 {
@@ -45,5 +45,4 @@ class Password
     {
         $this->characters = $characters;
     }
-
 }

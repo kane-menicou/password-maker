@@ -1,6 +1,6 @@
 <?php
 
-namespace PasswordBundle\Services;
+namespace AppBundle\Services;
 
 
 class PasswordService
