@@ -10,9 +10,9 @@ class Password
     protected $length;
 
     /**
-     * @var array
+     * @var bool
      */
-    protected $characters;
+    protected $letters;
 
     /**
      * @return int
@@ -31,18 +31,18 @@ class Password
     }
 
     /**
-     * @return array
+     * @return boolean
      */
-    public function getCharacters()
+    public function isLetters()
     {
-        return $this->characters;
+        return $this->letters;
     }
 
     /**
-     * @param array $characters
+     * @param boolean $letters
      */
-    public function setCharacters($characters)
+    public function setLetters($letters)
     {
-        $this->characters = $characters;
+        $this->letters = $letters;
     }
 }
