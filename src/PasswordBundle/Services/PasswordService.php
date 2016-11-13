@@ -13,26 +13,39 @@ class PasswordService
     /**
      * @param int $length
      * @param bool $allowLetters
-     * @param $allowNumbers
+     * @param bool $allowNumbers
      *
+     * @param bool $allowSymbols
+     * @param bool $allowUpperCase
      * @return string
      * @internal param array $allowedChars
      */
-    public function passwordMaker($length = 10, $allowLetters, $allowNumbers)
+    public function passwordMaker($length = 10, $allowLetters, $allowNumbers, $allowSymbols, $allowUpperCase)
     {
         $allowedChars = [];
         $numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-        $letters =['A', 'a', 'B', 'b','C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j',
-            'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U',
-            'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z','z'
+        $letters =[ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'P', 'p', 'q', 'R', 'r',
+            's', 't', 'u', 'v', 'w', 'x', 'y' ,'z'
+        ];
+        $symbols = ['{', '}', '(', ')', '[', "]", '#', ':', ';', '^', ',', '.', '?', '!', '|', '&', '_', '`','~', '@',
+            '$', '%', '/', '\\', '=', '+', '*', '-','"', "''"
+        ];
+        $upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','Q','R','S','T','U', 'V','W','X','Y',
+            'Z'
         ];
         $newLineCount = 0;
 
         if ($allowLetters === true) {
             $allowedChars = array_merge($allowedChars, $letters);
         }
-        if($allowNumbers === true){
+        if ($allowNumbers === true) {
             $allowedChars = array_merge($allowedChars, $numbers);
+        }
+        if ($allowSymbols === true) {
+            $allowedChars = array_merge($allowedChars, $symbols);
+        }
+        if ($allowUpperCase === true) {
+            $allowedChars = array_merge($allowedChars, $upperCase);
         }
 
         while ($length > 0) {

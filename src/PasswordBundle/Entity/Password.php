@@ -20,6 +20,16 @@ class Password
     protected $numbers;
 
     /**
+     * @var bool
+     */
+    protected $symbols;
+
+    /**
+     * @var bool
+     */
+    protected $upperCase;
+
+    /**
      * @return int
      */
     public function getLength()
@@ -65,5 +75,37 @@ class Password
     public function setNumbers($numbers)
     {
         $this->numbers = $numbers;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isSymbols()
+    {
+        return $this->symbols;
+    }
+
+    /**
+     * @param boolean $symbols
+     */
+    public function setSymbols($symbols)
+    {
+        $this->symbols = $symbols;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isUpperCase()
+    {
+        return $this->upperCase;
+    }
+
+    /**
+     * @param boolean $upperCase
+     */
+    public function setUpperCase($upperCase)
+    {
+        $this->upperCase = $upperCase;
     }
 }
