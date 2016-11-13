@@ -25,7 +25,7 @@ class DefaultController extends Controller
         $password = new Password;
 
         $form = $this->createFormBuilder($password)
-            ->add('length', RangeType::class, ['label' => 'Length 1-50', 'attr' => ['min' => 1, 'max' => 50]])
+            ->add('length', RangeType::class, ['label' => 'Length 1-50: ', 'attr' => ['min' => 1, 'max' => 50]])
             ->add('letters', CheckboxType::class, ['label' => 'Allow letters?', 'required' => false,])
             ->add('numbers', CheckboxType::class, ['label' => 'Allow numbers?', 'required' => false,])
             ->add('save', SubmitType::class, ['label' => 'Generate Password'])
