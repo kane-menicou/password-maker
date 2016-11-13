@@ -1,8 +1,9 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace PasswordBundle\Controller;
 
-use AppBundle\Entity\Password;
+
+use PasswordBundle\Entity\Password;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
