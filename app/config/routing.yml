@@ -1,5 +1,5 @@
 password:
-    resource: "@PasswordBundle/Controller/"
+    resource: "@QuickPasswordBundle/Controller/"
     type:     annotation
     prefix:   /
 
