@@ -4,5 +4,5 @@ password:
     prefix:   /
 
 app:
-    resource: "@AppBundle/Controller/"
+    resource: "@PasswordBundle/Controller/"
     type:     annotation

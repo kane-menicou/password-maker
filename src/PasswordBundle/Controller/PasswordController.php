@@ -1,8 +1,9 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace PasswordBundle\Controller;
 
-use AppBundle\Entity\Password;
+
+use PasswordBundle\Entity\Password;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -11,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class DefaultController extends Controller
+class PasswordController extends Controller
 {
     /**
      * @Route("/", name="homepage")
@@ -26,8 +27,10 @@ class DefaultController extends Controller
 
         $form = $this->createFormBuilder($password)
             ->add('length', RangeType::class, ['label' => 'Length 1-50: ', 'attr' => ['min' => 1, 'max' => 50]])
-            ->add('letters', CheckboxType::class, ['label' => 'Allow letters?', 'required' => false,])
+            ->add('letters', CheckboxType::class, ['label' => 'Allow lower case?', 'required' => false,])
             ->add('numbers', CheckboxType::class, ['label' => 'Allow numbers?', 'required' => false,])
+            ->add('symbols', CheckboxType::class, ['label' => 'Allow symbols?', 'required' => false,])
+            ->add('upperCase', CheckboxType::class, ['label' => 'Allow upper case?', 'required' => false,])
             ->add('save', SubmitType::class, ['label' => 'Generate Password'])
 
             ->getForm();
@@ -38,15 +41,24 @@ class DefaultController extends Controller
             $passwordLength = $form->get('length')->getData();
             $allowLetters = $form->get('letters')->getData();
             $allowNumbers = $form->get('numbers')->getData();
-            if ($allowLetters === true || $allowNumbers === true) {
+            $allowSymbols = $form->get('symbols')->getData();
+            $allowUpperCase = $form->get('upperCase')->getData();
+            if (
+                $allowLetters === true ||
+                $allowNumbers === true ||
+                $allowSymbols === true ||
+                $allowUpperCase === true
+            ) {
                 $passwordService = $this->get('password.service');
-                $password = $passwordService->passwordMaker($passwordLength, $allowLetters, $allowNumbers);
+                $password = $passwordService->passwordMaker($passwordLength, $allowLetters, $allowNumbers,
+                    $allowSymbols, $allowUpperCase
+                );
                 $message = "Your password is: ";
-            }else{
+            } else {
                 $password = "";
                 $message = "Please fill in the parameters of your password";
             }
-        }else{
+        } else {
             $password = "";
             $message = "Please fill in the parameters of your password";
         }
