@@ -1,3 +1,5 @@
 services:
    password.service:
         class: PasswordBundle\Services\PasswordService
+   memorable.password.service:
+        class: PasswordBundle\Services\MemorablePasswordService

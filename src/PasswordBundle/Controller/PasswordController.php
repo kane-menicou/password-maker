@@ -31,6 +31,7 @@ class PasswordController extends Controller
             ->add('numbers', CheckboxType::class, ['label' => 'Allow numbers?', 'required' => false,])
             ->add('symbols', CheckboxType::class, ['label' => 'Allow symbols?', 'required' => false,])
             ->add('upperCase', CheckboxType::class, ['label' => 'Allow upper case?', 'required' => false,])
+            ->add('memorable', CheckboxType::class, ['label' => 'Make memorable?', 'required' => false,])
             ->add('save', SubmitType::class, ['label' => 'Generate Password'])
 
             ->getForm();
@@ -42,6 +43,7 @@ class PasswordController extends Controller
             $allowLetters = $form->get('letters')->getData();
             $allowNumbers = $form->get('numbers')->getData();
             $allowSymbols = $form->get('symbols')->getData();
+            $memorable = $form->get('memorable')->getData();
             $allowUpperCase = $form->get('upperCase')->getData();
             if (
                 $allowLetters === true ||
@@ -54,7 +56,13 @@ class PasswordController extends Controller
                     $allowSymbols, $allowUpperCase
                 );
                 $message = "Your password is: ";
-            } else {
+            } elseif ($memorable === true) {
+                $passwordService = $this->get('memorable.password.service');
+                $password = $passwordService->passwordMaker($passwordLength, $allowLetters, $allowNumbers,
+                    $allowSymbols, $allowUpperCase
+                );
+                $message = "Your password is: ";
+            }else {
                 $password = "";
                 $message = "Please fill in the parameters of your password";
             }

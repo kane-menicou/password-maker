@@ -13,7 +13,7 @@ class PasswordController extends Controller
     public function password($length)
     {
         $passwordService = $this->get('password.service');
-        $password = $passwordService->passwordMaker($length, true, true);
+        $password = $passwordService->passwordMaker($length, true, true, true, true);
         return $this->render('QuickPasswordBundle:Default:index.html.twig',[
             'password' => $password,
         ]);

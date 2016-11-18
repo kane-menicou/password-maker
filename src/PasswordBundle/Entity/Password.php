@@ -30,6 +30,11 @@ class Password
     protected $upperCase;
 
     /**
+     * @var bool
+     */
+    protected $memorable;
+
+    /**
      * @return int
      */
     public function getLength()
@@ -107,5 +112,21 @@ class Password
     public function setUpperCase($upperCase)
     {
         $this->upperCase = $upperCase;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMemorable()
+    {
+        return $this->memorable;
+    }
+
+    /**
+     * @param mixed $memorable
+     */
+    public function setMemorable($memorable)
+    {
+        $this->memorable = $memorable;
     }
 }
