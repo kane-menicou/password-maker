@@ -35,7 +35,7 @@ class MemorablePasswordService
         $passwordLength = 0;
 
         while ($length > $passwordLength) {
-            if ($allowLetters === true) {
+            if ($allowLetters === true && $length !== $passwordLength / 2 ) {
                 $index = rand(1, 4);
                 if ($index === 1 || $constantNumber - 1 === $length) {
                     array_push($word, $vowels[rand(0, 36)]);
@@ -49,7 +49,7 @@ class MemorablePasswordService
                 if ($word[$passwordLength -1] === 'q' && $length > $passwordLength){
                     array_push($word, 'u');
                     $passwordLength += 1;
-            }
+                }
             }
             if ($length === $passwordLength) {
                 if (
@@ -64,6 +64,9 @@ class MemorablePasswordService
                     $passwordLength = 0;
                     $word = [];
                 }
+            }
+            if ($allowNumbers === true && $length === $passwordLength / 2) {
+                array_push($word, rand(0,9));
             }
         }
         return implode('', $word);
