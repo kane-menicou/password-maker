@@ -6,3 +6,7 @@ password:
 app:
     resource: "@PasswordBundle/Controller/"
     type:     annotation
+
+Memorable:
+    resource: "@PasswordBundle/Controller/"
+    type:     annotation
